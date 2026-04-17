@@ -280,8 +280,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Format Payback String
                 let paybackText = "";
-                if (diasRecupero < 7) {
-                    paybackText = "Menos de 1 semana";
+                if (diasRecupero < 7) { const dias = Math.round(diasRecupero); paybackText = ${dias} día${dias > 1 ? 's' : ''};
+                   
                 } else if (diasRecupero < 30) {
                     const semanas = Math.max(1, Math.round(diasRecupero / 7));
                     paybackText = `${semanas} semana${semanas > 1 ? 's' : ''}`;
