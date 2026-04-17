@@ -278,17 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     results.roi.classList.add('text-red-400');
                 }
 
-                // Format Payback String
-                let paybackText = "";
-                if (diasRecupero < 7) { const dias = Math.round(diasRecupero); paybackText = ${dias} día${dias > 1 ? 's' : ''};
-                   
-                } else if (diasRecupero < 30) {
-                    const semanas = Math.max(1, Math.round(diasRecupero / 7));
-                    paybackText = `${semanas} semana${semanas > 1 ? 's' : ''}`;
-                } else {
-                    const meses = (diasRecupero / 30).toFixed(1);
-                    paybackText = `${meses} mes${meses !== "1.0" ? 'es' : ''}`;
-                }
+              // Format Payback String let paybackText = ""; if (diasRecupero < 7) { const dias = Math.round(diasRecupero); paybackText = ${dias} día${dias > 1 ? 's' : ''}; } else if (diasRecupero < 30) { const semanas = Math.max(1, Math.round(diasRecupero / 7)); paybackText = ${semanas} semana${semanas > 1 ? 's' : ''}; } else { const meses = (diasRecupero / 30).toFixed(1); paybackText = ${meses} mes${meses !== "1.0" ? 'es' : ''}; } 
                 results.payback.textContent = paybackText;
 
                 // Dynamic Conclusion Text Based on ROI
