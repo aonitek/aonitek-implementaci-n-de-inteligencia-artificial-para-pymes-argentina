@@ -346,7 +346,7 @@
                     <div class="bg-aonitek-card rounded-xl p-5 border border-aonitek-border relative group">
                         <h4 class="text-xs font-semibold text-aonitek-muted uppercase tracking-wide mb-2 flex flex-col">
                             Ventas Perdidas (USD)
-                            <span class="text-[10px] lowercase text-gray-500 mt-0.5 normal-case">*Calculado al 10% de cierre</span>
+                            <span class="text-[10px] lowercase text-gray-500 mt-0.5 normal-case">*Calculado al 15% de cierre</span>
                         </h4>
                         <div id="resLeads" class="text-2xl font-bold text-white mb-1">$0</div>
                         <div id="resLeadsCount" class="text-xs text-aonitek-muted">0 leads perdidos</div>
@@ -395,6 +395,10 @@
             </div>
         </div>
 
+        <!-- ============================================================================ -->
+        <!-- JAVASCRIPT LOGIC - CÁLCULO UNIFICADO CON TASA DE CIERRE DEL 15%              -->
+        <!-- INSTRUCCIÓN CRÍTICA: TODOS LOS VALORES DE PÉRDIDA USAN EL MISMO CÁLCULO      -->
+        <!-- ============================================================================ -->
         
     </main>
 
@@ -434,10 +438,6 @@
         </div>
     </footer>
 
-    <!-- ============================================================================ -->
-    <!-- JAVASCRIPT LOGIC                                                             -->
-    <!-- Handles slider interactivity, live math calculations, and UI updates         -->
-    <!-- ============================================================================ -->
     
   <script src="script.js"></script>
 </body>
