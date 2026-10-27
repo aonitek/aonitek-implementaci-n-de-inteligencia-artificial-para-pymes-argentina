@@ -12,7 +12,27 @@
     <!-- CSS & TAILWIND CONFIGURATION                                                 -->
     <!-- Custom theme settings to match Aonitek brand guidelines                      -->
     <!-- ============================================================================ -->
-    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        aonitek: {
+                            base: '#0F1117',
+                            card: '#1A1D27',
+                            border: '#2A2D3A',
+                            green: '#1D9E75',
+                            text: '#FFFFFF',
+                            muted: '#8B8FA8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- ============================================================================ -->
     <!-- CUSTOM CSS FOR SLIDERS & ANIMATIONS                                          -->
@@ -30,11 +50,30 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="¿Cuánto dinero pierdes sin un Agente de IA?" />
 <meta name="twitter:description" content="Usa nuestra calculadora interactiva para descubrir el impacto financiero de no contar con tecnología de empleados digitales en tu equipo." />
-<link rel="icon" href="/api/files/landing-page/landing_page_favicon_ai_124_1776123059321.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="/api/files/landing-page/landing_page_favicon_ai_124_1776123059321.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/api/files/landing-page/landing_page_favicon_ai_124_1776123059321.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/api/files/landing-page/landing_page_favicon_ai_124_1776123059321.png" />
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <!-- End SEO Meta Tags -->
+<script data-lp-token-hydrate>
+(function(){try{
+  var slug="calculadora-roi-costo-sin-agente-ia";
+  var SITEK="";
+  var SK='lp_access_'+slug;
+  var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  function siteTok(){try{return SITEK?localStorage.getItem(SITEK):null;}catch(e){return null;}}
+  var u=new URL(location.href);var found=null;var changed=false;
+  var PINP=true;
+  if(!PINP){try{localStorage.removeItem('lp_pin_'+slug);if(SITEK)localStorage.removeItem(SITEK);}catch(e){}}
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{if(PINP||p!=='pin_access_token'){localStorage.setItem(map[p]+slug,v);if(SITEK&&p==='pin_access_token')localStorage.setItem(SITEK,v);}}catch(e){}if(p==='pin_access_token'){try{sessionStorage.setItem('lp_fresh_'+slug,'1');}catch(e){}}u.searchParams.delete(p);changed=true;}});
+  if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug)||siteTok();}catch(e){return null;}}
+  function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
+  if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
+  if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
+}catch(e){}})();
+</script>
 
 <script data-field-replace>
 (function(){
@@ -164,6 +203,7 @@
 (function(){
   var slug='kGytQHK';
   var apiBase='https://app.aonitek.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
   function findEmail(){
     var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
     for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
@@ -178,6 +218,7 @@
     for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
     return '';
   }
+  function findPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
   var __realProcessPayment=function(a,b,c,d,e){
     var amountCents,email,productName,productDescription,customerName,quantity;
     if(a&&typeof a==='object'){
@@ -189,13 +230,15 @@
     }
     if(!email)email=findEmail();
     if(!customerName)customerName=findName();
+    var phone=findPhone();
     if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
     if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
     if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
     var successBase=window.location.href.split('?')[0];
+    var __pLoc=(document.documentElement.lang||navigator.language||'en');
     return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+      body:JSON.stringify({email:email,name:customerName,phone:phone||'',amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
     }).then(function(r){return r.json();}).then(function(d){
       if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
       else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
@@ -205,15 +248,99 @@
   document.addEventListener('DOMContentLoaded',function(){
     var urlParams=new URLSearchParams(window.location.search);
     if(urlParams.get('payment')==='success'){
+      var sidP=urlParams.get('session_id');
+      if(sidP){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidP})}).catch(function(){});}catch(e){}}
       var pName=urlParams.get('product')||'your item';
       var overlay=document.createElement('div');overlay.id='payment-success-overlay';
       overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
-      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Thank you for purchasing '+pName.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'.</p><button onclick="document.getElementById(\'payment-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;background:color-mix(in srgb,'+successBtnColor+' 12%,white);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="'+successBtnColor+'" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
       document.body.appendChild(overlay);
+      var pBtn=document.getElementById('lp-pay-success-btn');
+      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
     }
   });
 })();
-</script>  <link rel="stylesheet" href="styles.css">
+</script>
+<script data-cart>
+(function(){
+  var slug='kGytQHK';
+  var apiBase='https://app.aonitek.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findCartEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  var __realCart=function(arg){
+    var items, email='', customerName='', successUrl, cancelUrl, currency;
+    if(Array.isArray(arg)){items=arg;}
+    else if(arg&&typeof arg==='object'){
+      items=arg.items;email=arg.email||'';customerName=arg.name||arg.customerName||'';
+      successUrl=arg.successUrl;cancelUrl=arg.cancelUrl;currency=arg.currency;
+    }
+    if(!Array.isArray(items)||items.length===0){alert('No items in cart.');return Promise.reject('no_items');}
+    var cleanItems=[];var totalCents=0;
+    for(var i=0;i<items.length;i++){
+      var it=items[i];if(!it||typeof it!=='object'){alert('Invalid item at position '+i);return Promise.reject('bad_item');}
+      var nm=typeof it.name==='string'?it.name.trim():'';
+      if(!nm){alert('Item '+(i+1)+' is missing a name.');return Promise.reject('no_name');}
+      var amt=typeof it.amountCents==='number'?it.amountCents:(typeof it.amount==='number'?Math.round(it.amount*100):NaN);
+      if(!isFinite(amt)||amt<1){alert('Item "'+nm+'" needs a valid amount in cents.');return Promise.reject('bad_amount');}
+      var qty=(typeof it.quantity==='number'&&it.quantity>0)?Math.floor(it.quantity):1;
+      cleanItems.push({name:nm,description:it.description||'',amountCents:amt,quantity:qty});
+      totalCents+=amt*qty;
+    }
+    if(totalCents<50){alert('Cart total must be at least $0.50');return Promise.reject('total_too_low');}
+    if(!email)email=findCartEmail();
+    if(!customerName)customerName=findCartName();
+    var cartPhone=findCartPhone();
+    if(!email){var p=window.prompt('Enter your email for the receipt:','');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert('An email address is required to complete checkout.');return Promise.reject('no_email');}}
+    var successBase=window.location.href.split('?')[0];
+    var body={email:email,name:customerName,items:cleanItems,locale:(document.documentElement.lang||navigator.language||'en')};
+    if(currency)body.currency=currency;
+    if(cartPhone)body.phone=cartPhone;
+    body.successUrl=successUrl||(successBase+'?cart=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}');
+    body.cancelUrl=cancelUrl||(successBase+'?cart=cancelled');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/cart/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process checkout');throw new Error(d.error);}
+    });
+  };
+  try{Object.defineProperty(window,'__processCart',{value:__realCart,writable:false,configurable:false});}catch(e){window.__processCart=__realCart;}
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('cart')==='success'){
+      var sidC=urlParams.get('session_id');
+      if(sidC){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidC})}).catch(function(){});}catch(e){}}
+      if(document.getElementById('payment-success-overlay')||document.getElementById('donation-success-overlay')||document.getElementById('cart-success-overlay'))return;
+      var overlay=document.createElement('div');overlay.id='cart-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||'Thank you for your order.';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;background:color-mix(in srgb,'+successBtnColor+' 12%,white);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="'+successBtnColor+'" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Order Confirmed!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-cart-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var cBtn=document.getElementById('lp-cart-success-btn');
+      if(cBtn){cBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body class="min-h-screen flex flex-col font-sans">
 
@@ -399,7 +526,178 @@
         <!-- JAVASCRIPT LOGIC - CÁLCULO UNIFICADO CON TASA DE CIERRE DEL 15%              -->
         <!-- INSTRUCCIÓN CRÍTICA: TODOS LOS VALORES DE PÉRDIDA USAN EL MISMO CÁLCULO      -->
         <!-- ============================================================================ -->
-        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                
+                // ===== CONSTANTES GLOBALES =====
+                // TASA DE CIERRE: 15% - Este es el factor crítico que se aplica a TODAS las pérdidas
+                const CONVERSION_RATE = 0.15; // Tasa de cierre del 15% - NO MODIFICAR
+                const DIAS_MES = 30;
+
+                // ===== ELEMENTOS DOM - INPUTS =====
+                const sliders = {
+                    consultas: document.getElementById('consultas'),
+                    sinRespuesta: document.getElementById('sinRespuesta'),
+                    ticket: document.getElementById('ticket'),
+                    horas: document.getElementById('horas'),
+                    costoHora: document.getElementById('costoHora'),
+                    inversion: document.getElementById('inversion')
+                };
+
+                // ===== ELEMENTOS DOM - DISPLAY VALUES =====
+                const outputs = {
+                    consultas: document.getElementById('valConsultas'),
+                    sinRespuesta: document.getElementById('valSinRespuesta'),
+                    ticket: document.getElementById('valTicket'),
+                    horas: document.getElementById('valHoras'),
+                    costoHora: document.getElementById('valCostoHora'),
+                    inversion: document.getElementById('valInversion')
+                };
+
+                // ===== ELEMENTOS DOM - RESULTADOS =====
+                const results = {
+                    total: document.getElementById('resTotal'),
+                    leads: document.getElementById('resLeads'),
+                    leadsCount: document.getElementById('resLeadsCount'),
+                    horas: document.getElementById('resHoras'),
+                    horasCount: document.getElementById('resHorasCount'),
+                    roi: document.getElementById('resRoi'),
+                    payback: document.getElementById('resPayback'),
+                    conclusion: document.getElementById('resConclusion')
+                };
+
+                // ===== FUNCIONES AUXILIARES =====
+                // Formatea números a moneda USD
+                function formatCurrency(num) {
+                    return new Intl.NumberFormat('en-US', { 
+                        style: 'currency', 
+                        currency: 'USD', 
+                        maximumFractionDigits: 0 
+                    }).format(num);
+                }
+
+                // Formatea números con separadores de miles
+                function formatNumber(num) {
+                    return new Intl.NumberFormat('en-US', { 
+                        maximumFractionDigits: 0 
+                    }).format(num);
+                }
+
+                // Actualiza el progreso visual del slider
+                function updateSliderProgress(slider) {
+                    const min = parseFloat(slider.min) || 0;
+                    const max = parseFloat(slider.max) || 100;
+                    const val = parseFloat(slider.value);
+                    const percentage = ((val - min) / (max - min)) * 100;
+                    slider.style.setProperty('--progress', `${percentage}%`);
+                }
+
+                // ===== FUNCIÓN PRINCIPAL DE CÁLCULO =====
+                // IMPORTANTE: Esta función es la ÚNICA fuente de verdad para todos los cálculos
+                function calculate() {
+                    
+                    // ===== PASO 1: OBTENER VALORES DE LOS SLIDERS =====
+                    const vals = {
+                        consultas: parseFloat(sliders.consultas.value),
+                        sinRespuesta: parseFloat(sliders.sinRespuesta.value),
+                        ticket: parseFloat(sliders.ticket.value),
+                        horas: parseFloat(sliders.horas.value),
+                        costoHora: parseFloat(sliders.costoHora.value),
+                        inversion: parseFloat(sliders.inversion.value)
+                    };
+
+                    // ===== PASO 2: ACTUALIZAR LABELS DE DISPLAY (junto a los sliders) =====
+                    outputs.consultas.textContent = formatNumber(vals.consultas);
+                    outputs.sinRespuesta.textContent = vals.sinRespuesta + '%';
+                    outputs.ticket.textContent = formatCurrency(vals.ticket);
+                    outputs.horas.textContent = vals.horas + ' hs';
+                    outputs.costoHora.textContent = formatCurrency(vals.costoHora);
+                    outputs.inversion.textContent = formatCurrency(vals.inversion);
+
+                    // ===== PASO 3: ACTUALIZAR PROGRESO VISUAL DE SLIDERS =====
+                    Object.values(sliders).forEach(slider => {
+                        updateSliderProgress(slider);
+                    });
+
+                    // ===== PASO 4: CÁLCULOS PRINCIPALES (APLICANDO TASA DE CIERRE DEL 15%) =====
+                    
+                    // 1. Calcular leads perdidos reales (solo los que quedan sin respuesta)
+                    const leadsPerdidosMes = Math.round(vals.consultas * (vals.sinRespuesta / 100) * DIAS_MES);
+                    
+                    // 2. Calcular las ventas perdidas aplicando el 15% de cierre de manera estricta
+                    const ventasPerdidasUsd = leadsPerdidosMes * vals.ticket * CONVERSION_RATE;
+                    
+                    // 3. Calcular el costo de horas improductivas
+                    const horasPerdidasMes = Math.round(vals.horas * DIAS_MES);
+                    const costoHorasUsd = horasPerdidasMes * vals.costoHora;
+
+                    // 4. Pérdida total unificada (usada en todas partes de manera consistente)
+                    const perdidaTotal = ventasPerdidasUsd + costoHorasUsd;
+                    
+                    // Cálculos de ROI y Payback
+                    const roi = ((perdidaTotal - vals.inversion) / vals.inversion) * 100;
+                    const ahorroDiario = perdidaTotal / DIAS_MES;
+                    const diasPayback = vals.inversion / ahorroDiario;
+
+                    // ===== PASO 5: RENDERIZAR RESULTADOS EN EL DOM =====
+                    
+                    // 5A. Pérdida Total (caja principal grande)
+                    results.total.textContent = formatCurrency(perdidaTotal);
+                    
+                    // 5B. Ventas Perdidas (caja de breakdown)
+                    results.leads.textContent = formatCurrency(ventasPerdidasUsd);
+                    results.leadsCount.textContent = `${formatNumber(leadsPerdidosMes)} leads perdidos al mes`;
+                    
+                    // 5C. Horas Improductivas (caja de breakdown)
+                    results.horas.textContent = formatCurrency(costoHorasUsd);
+                    results.horasCount.textContent = `${formatNumber(horasPerdidasMes)} horas perdidas al mes`;
+
+                    // 5D. ROI con color dinámico
+                    const roiFormato = formatNumber(Math.max(0, roi));
+                    if (roi > 0) {
+                        results.roi.textContent = '+' + roiFormato + '%';
+                        results.roi.className = 'text-3xl font-black transition-colors duration-300 text-aonitek-green';
+                    } else {
+                        results.roi.textContent = roiFormato + '%';
+                        results.roi.className = 'text-3xl font-black transition-colors duration-300 text-red-500';
+                    }
+
+                    // 5E. Período de Recuperación (Payback)
+                    let paybackText = '';
+                    if (diasPayback < 7) {
+                        const dias = Math.round(diasPayback);
+                        paybackText = `${dias} día${dias > 1 ? 's' : ''}`;
+                    } else if (diasPayback < 30) {
+                        const semanas = Math.max(1, Math.round(diasPayback / 7));
+                        paybackText = `${semanas} semana${semanas > 1 ? 's' : ''}`;
+                    } else {
+                        const meses = (diasPayback / 30).toFixed(1);
+                        paybackText = `${meses} mes${meses !== '1.0' ? 'es' : ''}`;
+                    }
+                    results.payback.textContent = paybackText;
+
+                    // ===== PASO 6: RENDERIZAR CONCLUSIÓN DINÁMICA =====
+                    // IMPORTANTE: Usa la misma perdidaTotal que se muestra en la caja principal
+                    // y el mismo cálculo de ventas perdidas (con 15% aplicado)
+                    if (roi > 500) {
+                        results.conclusion.innerHTML = `Tu negocio pierde <strong>${formatCurrency(perdidaTotal)}</strong> mensuales por consultas sin respuesta oportuna (calculado con tasa de cierre realista del 15%).<br>La suscripción de <strong>${formatCurrency(vals.inversion)}</strong> se paga sola en <strong>${results.payback.textContent.toLowerCase()}</strong>.`;
+                    } else if (roi > 0) {
+                        results.conclusion.innerHTML = `Rentabilidad positiva. Automatizar tu atención cubrirá su costo rápidamente y generará un ahorro de <strong>${formatCurrency(perdidaTotal)}</strong> al mes (con cierre del 15%).`;
+                    } else {
+                        results.conclusion.innerHTML = 'Ajusta los valores para calcular tu retorno de inversión.';
+                    }
+                }
+
+                // ===== EVENT LISTENERS =====
+                // Bind todos los sliders al evento de cálculo
+                Object.values(sliders).forEach(slider => {
+                    slider.addEventListener('input', calculate);
+                });
+
+                // Inicializar cálculo al cargar la página
+                calculate();
+            });
+        </script>
     </main>
 
     <!-- ============================================================================ -->
@@ -419,7 +717,7 @@
             <div class="md:col-span-1 flex flex-col gap-2">
                 <h5 class="text-sm font-bold text-white uppercase tracking-wider mb-2">Contacto</h5>
                 <a href="mailto:info@aonitek.com" class="text-sm text-aonitek-muted hover:text-aonitek-green transition-colors">info@aonitek.com</a>
-                <a href="tel:+5492974643128" class="text-sm text-aonitek-muted hover:text-aonitek-green transition-colors">+54 9 297 4643128</a>
+                <a href="tel:+5492974643218" class="text-sm text-aonitek-muted hover:text-aonitek-green transition-colors">+54 9 297 4643218</a>
                 <a href="https://www.aonitek.com" target="_blank" class="text-sm text-aonitek-muted hover:text-aonitek-green transition-colors">www.aonitek.com</a>
             </div>
 
@@ -438,7 +736,9 @@
         </div>
     </footer>
 
-    
-  <script src="script.js"></script>
+    <script>
+        // Set footer year
+        document.getElementById('year').textContent = '2026';
+    </script>
 </body>
 </html>
